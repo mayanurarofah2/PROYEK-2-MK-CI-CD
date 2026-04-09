@@ -113,6 +113,8 @@ jobs:
             docker pull ghcr.io/${{ github.repository }}:latest
 
             # Update container tanpa downtime besar
+            
+            docker rm -f laravel_app || true
             docker compose down || true
             docker compose up -d --remove-orphans
 
